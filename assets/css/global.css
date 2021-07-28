@@ -1,0 +1,7 @@
+@import url(./general-sans.css);
+
+html{
+    font-family: 'GeneralSans-Regular';
+    color: #131313;
+    background-color: #ffffff;
+}
