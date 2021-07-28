@@ -2,6 +2,17 @@
 
 html{
     font-family: 'GeneralSans-Regular';
-    color: #131313;
+    color: #272643;
     background-color: #ffffff;
+}
+
+/* Fonts */
+.font-medium{
+    font-family: 'GeneralSans-Medium';
+}
+.font-semibold{
+  font-family: 'GeneralSans-Semibold';
+}
+.font-bold{
+  font-family: 'GeneralSans-Bold';
 }
