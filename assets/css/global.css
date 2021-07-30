@@ -5,3 +5,14 @@ html{
     color: #272643;
     background-color: #ffffff;
 }
+
+/* Fonts */
+.generalsans-medium{
+    font-family: 'GeneralSans-Medium';
+}
+.generalsans-semibold{
+  font-family: 'GeneralSans-Semibold';
+}
+.generalsans-bold{
+  font-family: 'GeneralSans-Bold';
+}

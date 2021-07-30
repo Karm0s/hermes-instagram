@@ -47,9 +47,9 @@ export default class AppSidebar extends Vue{
 </script>
 <style lang="postcss" scoped>
 .sidebar{
-    width: 260px !important;
+    width: 260px;
     min-height: 100vh;
-    @apply flex flex-col items-center bg-red-300;
+    @apply flex flex-col items-center bg-red-300 pt-8;
 }
 .brand{
     font-family: 'GeneralSans-Bold';
