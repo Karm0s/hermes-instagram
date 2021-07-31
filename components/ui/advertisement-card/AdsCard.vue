@@ -15,5 +15,9 @@ import AppCard from "../AppCard.vue"
 export default class AdsCard extends Vue{}
 </script>
 <style lang="postcss" scoped>
+.card{
+    width: 300px;
+    height: 300px;
 
+}
 </style>

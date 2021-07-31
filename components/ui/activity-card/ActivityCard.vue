@@ -20,5 +20,4 @@ export default class ActivityCard extends Vue{
 }
 </script>
 <style lang="postcss" scoped>
-
 </style>
