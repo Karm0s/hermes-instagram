@@ -16,7 +16,12 @@
                 </stat-item>
             </stats-card>
             <activity-card title="Recent Activity" class="card row-span-1 col-span-2 bg-green-100">
-                This is activity
+                <recent-feature></recent-feature>
+                <recent-feature></recent-feature>
+                <recent-feature></recent-feature>
+                <recent-feature></recent-feature>
+                <recent-feature></recent-feature>
+                <recent-feature></recent-feature>
             </activity-card>
             <stats-card title="Weekly Statistics" class="row-span-2 col-span-4 bg-green-100">
                 <stat-item icon="user" label="New Followers">
@@ -42,6 +47,7 @@ import StatsCard from "~/components/ui/stats-card/StatsCard.vue"
 import StatItem from "~/components/ui/stats-card/StatItem.vue"
 
 import ActivityCard from "~/components/ui/activity-card/ActivityCard.vue"
+import RecentFeature from "~/components/ui/activity-card/events/RecentFeature.vue"
 
 import AdsCard from "~/components/ui/advertisement-card/AdsCard.vue"
 
@@ -51,6 +57,7 @@ import AdsCard from "~/components/ui/advertisement-card/AdsCard.vue"
         StatsCard,
         StatItem,
         ActivityCard,
+        RecentFeature,
         AdsCard
     }
 })
