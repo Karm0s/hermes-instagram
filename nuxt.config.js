@@ -33,7 +33,8 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     'nuxt-fontawesome',
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    'nuxt-mq',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -59,6 +60,16 @@ export default {
         icons: ['fab']
       }
     ],
+  },
+
+  // nuxt-mq configuration
+  mq: {
+    defaultBreakpoint: 'sm',
+    breakpoints: {
+      sm: 450,
+      md: 1250,
+      lg: Infinity,
+    },
   },
   
   // Build Configuration: https://go.nuxtjs.dev/config-build
