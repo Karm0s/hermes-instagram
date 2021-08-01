@@ -1,106 +1,130 @@
 <template>
     <aside class="sidebar">
-        <div class="brand">
-            Feature Me
+        <div class="sidebar-header">
+            <h1 class="brand generalsans-semibold" :class="this.$mq === 'sm' ? 'hidden' : ''">featurerequest.co</h1>
+            <h1 class="brand generalsans-semibold" :class="this.$mq === 'sm' ? '' : 'hidden'">FR</h1>
         </div>
         <div class="navlinks">
-            <div class="upper-navlinks">
-                <button id="home" class="navlink" :class="this.active === 'home'? 'navlink--active' : ''" @click="navlinkClick">
-                    <fa icon="home" class="navlink-icon"/>
-                    <span>Home</span>
+            <div class="upper-links">
+                <button id="home" class="navlink" :class="this.active === 'home' ? 'navlink--active' : ''" @click="navlinkClick">
+                    <fa class="navlink-icon" icon="home" />
+                    <transition name="fade-text" mode="out-in">
+                        <span class="navlink-text" v-if="this.$mq !== 'sm'">Home</span>
+                    </transition>
                 </button>
-                <button id="feature-requests" class="navlink" :class="this.active === 'feature-requests'? 'navlink--active' : ''" @click="navlinkClick">
-                    <fa icon="inbox" class="navlink-icon"/>
-                    <span>Feature Requests</span>
+
+                <button id="feature-requests" class="navlink" :class="this.active === 'feature-requests' ? 'navlink--active' : ''" @click="navlinkClick">
+                    <fa class="navlink-icon" icon="inbox" />
+                    <transition name="fade-text" mode="out-in">
+                        <span class="navlink-text" v-if="this.$mq !== 'sm'">Feature Requests</span>
+                    </transition>
                 </button>
-                <button id="request-page" class="navlink" :class="this.active === 'request-page'? 'navlink--active' : ''" @click="navlinkClick">
-                    <fa icon="file" class="navlink-icon"/>
-                    <span>Request Page</span>
+
+                <button id="request-page" class="navlink" :class="this.active === 'request-page' ? 'navlink--active' : ''" @click="navlinkClick">
+                    <fa class="navlink-icon" icon="file" />
+                    <transition name="fade-text" mode="out-in">
+                        <span class="navlink-text" v-if="this.$mq !== 'sm'">Requests Page</span>
+                    </transition>
                 </button>
-                <button id="account" class="navlink" :class="this.active === 'account'? 'navlink--active' : ''" @click="navlinkClick">
-                    <fa icon="user" class="navlink-icon"/>
-                    <span>Account</span>
+
+                <button id="account" class="navlink" :class="this.active === 'account' ? 'navlink--active' : ''" @click="navlinkClick">
+                    <fa class="navlink-icon" icon="user" />
+                    <transition name="fade-text" mode="out-in">
+                        <span class="navlink-text" v-if="this.$mq !== 'sm'">Account</span>
+                    </transition>
                 </button>
             </div>
-            <div class="lower-navlinks">
-                <button id="logout" class="navlink" :class="this.active === 'logout'? 'navlink--active' : ''" @click="navlinkClick">
-                    <fa icon="door-open" class="navlink-icon"/>
-                    <span>Log Out</span>
+            <div class="lower-links">
+                <button id="logout" class="navlink" :class="this.active === 'logout' ? 'navlink--active' : ''" @click="navlinkClick">
+                    <fa class="navlink-icon" icon="door-open" />
+                    <transition name="fade-text" mode="out-in">
+                        <span class="navlink-text" v-if="this.$mq !== 'sm'">Log Out</span>
+                    </transition>
                 </button>
             </div>
         </div>
     </aside>
 </template>
 <script lang="ts">
-import {Vue, Component} from "nuxt-property-decorator"
+import { Vue, Component } from "nuxt-property-decorator"
 
 @Component
-export default class AppSidebar extends Vue{
-    active:String = "home";
+export default class AppSidebar extends Vue {
+    active: String = "home"
+    sidebarOpen: Boolean = false
 
-    navlinkClick(e:any){
-        let id:String = e.target.id
+    navlinkClick(e: any) {
+        let id: String = e.target.id
         this.active = id
-        this.$emit('section-change', id)
+        this.$emit("section-change", id)
+    }
+
+    sidebarButtonClick() {
+        this.sidebarOpen = !this.sidebarOpen
     }
 }
 </script>
 <style lang="postcss" scoped>
-.sidebar{
-    width: 260px;
-    min-height: 100vh;
-    @apply flex flex-col items-center bg-red-300 pt-8;
+.sidebar {
+    @apply bg-blue-100 px-1 md:px-8 h-screen flex flex-col py-8;
 }
-.brand{
-    font-family: 'GeneralSans-Bold';
-    @apply mt-2;
+.sidebar-header {
+    @apply flex items-center justify-center mt-3 mb-10;
 }
 .navlinks{
-    font-family: "GeneralSans-variable";
-    @apply flex flex-grow flex-col items-start justify-between w-full pl-6 mt-10;
+    @apply flex-grow flex flex-col items-start justify-between h-full;
 }
-.upper-navlinks{
-    @apply w-full;
+.upper-links{
+    @apply flex flex-col items-start justify-start;
 }
-.upper-navlinks > *{
-    border-radius: 10px 0 0 10px;
-}
-.lower-navlinks{
-}
-.lower-navlinks > *{
-    border-radius: 10px 10px 10px 10px;
-    @apply pr-4;
-}
-.navlink{
-    background-size: 0% 0%;
-    font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
-    @apply w-full py-2 pl-2 my-2;
-
-    & > span {
-        transition: font-weight 0.3s cubic-bezier(0.85, 0, 0.15, 1);
-    }
-}
-.navlink > * {
-    pointer-events: none;
-}
-.navlink--active{
-    background-size: 100% 100%;
-    @apply bg-red-100;
-    & > .navlink-icon {
-        font-size: 1.5rem;
-    }
-    & > span {
-        font-weight: 700;
-    }
-}
-.navlink-icon{
+.navlink-icon {
     width: 2rem;
     font-size: 1.25rem;
     transition: font-size 0.3s cubic-bezier(0.85, 0, 0.15, 1);
     @apply mx-2;
 }
-.navlink{
-    @apply flex justify-start items-center;
+.navlink-text {
+    height: auto;
+    transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+}
+.fade-text-enter-active,
+.fade-text-leave-active {
+    transition: all 0.2s;
+    opacity: 1;
+    transform: scale(1);
+}
+.fade-text-enter,
+.fade-text-leave-to {
+    opacity: 0;
+    transform: scale(0);
+}
+.navlink {
+    background-size: 0% 0%;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+    border-radius: 10px;
+    @apply w-full py-2 px-2 my-2 flex justify-start items-center;
+}
+.navlink:hover{
+    background-size: 100% 100%;
+    & > .navlink-icon {
+        font-size: 1.5rem;
+    }
+    & > .navlink-text {
+        font-weight: 700;
+    }
+}
+.navlink > * {
+    pointer-events: none;
+}
+.navlink--active {
+    background-size: 100% 100%;
+    @apply bg-red-100;
+    & > .navlink-icon {
+        font-size: 1.5rem;
+    }
+    & > .navlink-text {
+        font-weight: 700;
+    }
 }
 </style>
