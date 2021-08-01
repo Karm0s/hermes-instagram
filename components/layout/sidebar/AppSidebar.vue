@@ -81,7 +81,7 @@ export default class AppSidebar extends Vue {
     width: 2rem;
     font-size: 1.25rem;
     transition: font-size 0.3s cubic-bezier(0.85, 0, 0.15, 1);
-    @apply mx-2;
+    @apply mx-2 text-gray-500;
 }
 .navlink-text {
     height: auto;
@@ -122,6 +122,7 @@ export default class AppSidebar extends Vue {
     @apply bg-red-100;
     & > .navlink-icon {
         font-size: 1.5rem;
+        @apply text-black;
     }
     & > .navlink-text {
         font-weight: 700;

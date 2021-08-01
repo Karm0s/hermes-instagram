@@ -1,7 +1,7 @@
 <template>
     <div class="stat-item flex flex-col items-center text-center justify-center mb-8 md:mb-0">
-        <fa :icon="this.icon" class="stat-icon mb-2 lg:mb-4" />
-        <p class="stat-text leading-4 lg:leading-6 generalsans-bold text-xl lg:text-3xl w-full">
+        <fa :icon="this.icon" class="stat-icon text-gray-500 mb-2 lg:mb-4" />
+        <p class="stat-text leading-4 lg:leading-6 generalsans-semibold text-xl lg:text-3xl w-full">
             <slot/> <br /><span class="generalsans-medium text-sm lg:text-lg text-gray-400">{{this.label}}</span>
         </p>
     </div>
