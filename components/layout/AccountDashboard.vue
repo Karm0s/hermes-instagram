@@ -1,7 +1,7 @@
 <template>
     <section class="w-full h-full">
         <dashboard-header>
-            <h1 class="text-3xl align-middle generalsans-medium">Account Settings</h1>
+            <h1 class="text-lg leading-5 md:text-xl lg:text-2xl align-middle generalsans-medium">Account Settings</h1>
         </dashboard-header>
         <div class="flex flex-col items-start justify-start w-1/2">
             <label class="generalsans-semibold" for="">E-mail</label>

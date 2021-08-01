@@ -4,8 +4,8 @@
         </div>
     </div> -->
     <app-card class="py-8">
-        <h1 class="card-title stat-text text-2xl generalsans-medium text-center mb-8">{{this.title}}</h1>
-        <div class="flex w-full md:w-4/5 justify-between">
+        <h1 class="card-title stat-text text-lg lg:text-2xl generalsans-medium text-center mb-8">{{this.title}}</h1>
+        <div class="flex flex-col md:flex-row w-full justify-between">
             <slot/>
         </div>
     </app-card>

@@ -3,8 +3,8 @@
         <!-- <h1 class="text-3xl align-middle generalsans-medium">Welcome, <span class="font-bold generalsans-bold">Yanis</span></h1> -->
         <slot/>
         <user-avatar>
-            <h3 class="text-sm generalsans-semibold">John</h3>
-            <h4 class="text-xs generalsans-medium">225K followers</h4>
+            <h3 class="text-sm generalsans-semibold" v-if="this.$mq!=='sm'">John</h3>
+            <h4 class="text-xs generalsans-medium" v-if="this.$mq!=='sm'">225K followers</h4>
         </user-avatar>
     </div>
 </template>

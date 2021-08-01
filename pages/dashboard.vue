@@ -28,7 +28,7 @@ import AccountDashboard from "~/components/layout/AccountDashboard.vue"
     },
 })
 export default class Dashboard extends Vue {
-    currentSection: String = "FeatureRequestsDashboard"
+    currentSection: String = "HomeDashboard"
 
     changeSection(sectionId: String) {
         if (sectionId === "home") {

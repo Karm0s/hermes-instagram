@@ -1,7 +1,7 @@
 <template>
     <section class="w-full h-full">
         <dashboard-header>
-            <h1 class="text-3xl align-middle generalsans-medium">Requests Page</h1>
+            <h1 class="text-lg leading-5 md:text-xl lg:text-2xl align-middle generalsans-medium">Requests Page</h1>
         </dashboard-header>
         <div>
             <label>Include in feature page : </label>

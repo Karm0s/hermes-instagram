@@ -66,13 +66,13 @@ export default class AppSidebar extends Vue {
 </script>
 <style lang="postcss" scoped>
 .sidebar {
-    @apply bg-blue-100 px-1 md:px-8 h-screen flex flex-col py-8;
+    @apply bg-blue-100 md:px-8 h-screen flex flex-col py-8;
 }
 .sidebar-header {
     @apply flex items-center justify-center mt-3 mb-10;
 }
 .navlinks{
-    @apply flex-grow flex flex-col items-start justify-between h-full;
+    @apply flex-grow flex flex-col items-start justify-between h-full px-1;
 }
 .upper-links{
     @apply flex flex-col items-start justify-start;
@@ -103,7 +103,7 @@ export default class AppSidebar extends Vue {
     font-weight: 500;
     transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
     border-radius: 10px;
-    @apply w-full py-2 px-2 my-2 flex justify-start items-center;
+    @apply w-full py-2 md:px-2 my-2 flex justify-start items-center;
 }
 .navlink:hover{
     background-size: 100% 100%;

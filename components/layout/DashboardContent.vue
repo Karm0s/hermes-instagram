@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col w-full h-screen overflow-x-hidden overflow-y-scroll px-10 py-8">
+    <div class="flex flex-col w-full h-screen overflow-x-hidden overflow-y-scroll px-4 lg:px-10 py-8">
         <slot/>
     </div>
 </template>

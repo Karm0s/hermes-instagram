@@ -1,8 +1,8 @@
 <template>
-    <div class="stat-item flex flex-col items-center text-center justify-center">
-        <fa :icon="this.icon" class="stat-icon mb-4" />
-        <p class="stat-text leading-6 generalsans-bold text-4xl w-full">
-            <slot/> <br /><span class="generalsans-medium text-lg text-gray-400">{{this.label}}</span>
+    <div class="stat-item flex flex-col items-center text-center justify-center mb-8 md:mb-0">
+        <fa :icon="this.icon" class="stat-icon mb-2 lg:mb-4" />
+        <p class="stat-text leading-4 lg:leading-6 generalsans-bold text-xl lg:text-3xl w-full">
+            <slot/> <br /><span class="generalsans-medium text-sm lg:text-lg text-gray-400">{{this.label}}</span>
         </p>
     </div>
 </template>
@@ -25,6 +25,6 @@ export default class StatItem extends Vue {
     min-width: 150px;
 }
 .stat-icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 </style>

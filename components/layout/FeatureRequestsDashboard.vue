@@ -1,9 +1,9 @@
 <template>
     <section class="w-full h-full">
         <dashboard-header>
-            <h1 class="text-3xl align-middle generalsans-medium">Feature Requests</h1>
+            <h1 class="text-lg leading-5 md:text-xl lg:text-2xl align-middle generalsans-medium">Feature Requests</h1>
         </dashboard-header>
-        <div class="flex flex-col mx-auto w-4/5">
+        <div class="flex flex-col mx-auto lg:w-4/5">
             <feature-request></feature-request>
             <feature-request></feature-request>
             <feature-request></feature-request>
