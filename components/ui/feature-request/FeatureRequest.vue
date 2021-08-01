@@ -10,7 +10,7 @@
         <div>
             Wants: <span class="generalsans-bold">Story/Post</span>
         </div>
-        <app-button>
+        <app-button class="w-1/4">
             contact
         </app-button>
     </div>
