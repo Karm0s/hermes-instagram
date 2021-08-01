@@ -19,9 +19,9 @@ export default class AppButton extends Vue {
 
 <style lang="postcss" scoped>
 .button {
-  width: 120px;
+  min-width: 120px;
   height: 45px;
-  border-radius: 2px;
+  border-radius: 10px;
   transition: all 0.2s ease-in;
   @apply text-sm font-bold;
 }
@@ -47,7 +47,7 @@ export default class AppButton extends Vue {
   color: #5142FF;
 }
 .button--mobile {
-  width: 120px;
+  /* width: 120px; */
   @apply text-xs;
 }
 </style>

@@ -25,6 +25,6 @@ export default class StatItem extends Vue {
     min-width: 150px;
 }
 .stat-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 </style>
