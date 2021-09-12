@@ -16,7 +16,7 @@ export default class ProfilePicture extends Vue{}
     height: 50px;
     border-radius: 100%;
     transition: border-radius 0.3s ease-in;
-    object-fit: fill;
+    object-fit: cover;
     @apply bg-red-100 flex-shrink-0;
 }
 .avatar:hover {
