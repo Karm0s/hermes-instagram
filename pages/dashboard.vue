@@ -1,25 +1,38 @@
 <template>
-    <main class="flex items-start h-full overflow-x-hidden w-screen justify-start">
-        <app-sidebar class="flex-shrink-0" @section-change="changeSection"></app-sidebar>
+    <main class="flex flex-col md:flex-row items-start h-screen overflow-x-hidden w-screen justify-start">
+        <transition name="component-fade" mode="out-in">
+            <app-sidebar class="flex-shrink-0" v-if="this.$mq !== 'sm'"></app-sidebar>
+        </transition>
+        <!-- <app-sidebar class="flex-shrink-0" @section-change="changeSection"></app-sidebar> -->
         <dashboard-content>
             <transition name="component-fade" mode="out-in">
-                <component :is="this.currentSection"></component>
+                <component :is="this.navigationModule.currentComponent"></component>
             </transition>
         </dashboard-content>
+        <transition name="component-fade" mode="out-in">
+            <bottom-dock v-if="this.$mq === 'sm'"></bottom-dock>
+        </transition>
+        <!-- <bottom-dock @section-change="changeSection"></bottom-dock> -->
     </main>
 </template>
 <script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator"
+import { Vue, Component, getModule, Watch } from "nuxt-property-decorator"
 import AppSidebar from "~/components/layout/sidebar/AppSidebar.vue"
+import BottomDock from "~/components/layout/bottom-dock/BottomDock.vue"
 import DashboardContent from "~/components/layout/DashboardContent.vue"
 import HomeDashboard from "~/components/layout/HomeDashboard.vue"
 import FeatureRequestsDashboard from "~/components/layout/FeatureRequestsDashboard.vue"
 import RequestPageDashboard from "~/components/layout/RequestPageDashboard.vue"
 import AccountDashboard from "~/components/layout/AccountDashboard.vue"
 
+import {NavigationNames} from "~/types/Navigation"
+
+import NavigationModule from "~/store/navigationModule"
+
 @Component({
     components: {
         AppSidebar,
+        BottomDock,
         DashboardContent,
         HomeDashboard,
         FeatureRequestsDashboard,
@@ -29,17 +42,10 @@ import AccountDashboard from "~/components/layout/AccountDashboard.vue"
 })
 export default class Dashboard extends Vue {
     currentSection: String = "HomeDashboard"
-
-    changeSection(sectionId: String) {
-        if (sectionId === "home") {
-            this.currentSection = "HomeDashboard"
-        } else if (sectionId === "feature-requests") {
-            this.currentSection = "FeatureRequestsDashboard"
-        } else if (sectionId === "request-page") {
-            this.currentSection = "RequestPageDashboard"
-        } else if (sectionId === "account") {
-            this.currentSection = "AccountDashboard"
-        }
+    navigationModule!:NavigationModule
+    created() {
+        const navigationModuleInstance = getModule(NavigationModule, this.$store)
+        this.navigationModule = navigationModuleInstance
     }
 }
 </script>

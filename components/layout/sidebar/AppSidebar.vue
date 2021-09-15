@@ -6,28 +6,28 @@
         </div>
         <div class="navlinks">
             <div class="upper-links">
-                <button id="home" class="navlink" :class="this.active === 'home' ? 'navlink--active' : ''" @click="navlinkClick">
+                <button id="home" class="navlink" :class="this.navigationModule.currentSection === 'home' ? 'navlink--active' : ''" @click="navlinkClick">
                     <fa class="navlink-icon" icon="home" />
                     <transition name="fade-text" mode="out-in">
                         <span class="navlink-text" v-if="this.$mq !== 'sm'">Home</span>
                     </transition>
                 </button>
 
-                <button id="feature-requests" class="navlink" :class="this.active === 'feature-requests' ? 'navlink--active' : ''" @click="navlinkClick">
+                <button id="feature-requests" class="navlink" :class="this.navigationModule.currentSection === 'feature-requests' ? 'navlink--active' : ''" @click="navlinkClick">
                     <fa class="navlink-icon" icon="inbox" />
                     <transition name="fade-text" mode="out-in">
                         <span class="navlink-text" v-if="this.$mq !== 'sm'">Feature Requests</span>
                     </transition>
                 </button>
 
-                <button id="request-page" class="navlink" :class="this.active === 'request-page' ? 'navlink--active' : ''" @click="navlinkClick">
+                <button id="request-page" class="navlink" :class="this.navigationModule.currentSection === 'request-page' ? 'navlink--active' : ''" @click="navlinkClick">
                     <fa class="navlink-icon" icon="file" />
                     <transition name="fade-text" mode="out-in">
                         <span class="navlink-text" v-if="this.$mq !== 'sm'">Requests Page</span>
                     </transition>
                 </button>
 
-                <button id="account" class="navlink" :class="this.active === 'account' ? 'navlink--active' : ''" @click="navlinkClick">
+                <button id="account" class="navlink" :class="this.navigationModule.currentSection === 'account' ? 'navlink--active' : ''" @click="navlinkClick">
                     <fa class="navlink-icon" icon="user" />
                     <transition name="fade-text" mode="out-in">
                         <span class="navlink-text" v-if="this.$mq !== 'sm'">Account</span>
@@ -35,7 +35,7 @@
                 </button>
             </div>
             <div class="lower-links">
-                <button id="logout" class="navlink" :class="this.active === 'logout' ? 'navlink--active' : ''" @click="navlinkClick">
+                <button id="logout" class="navlink" :class="this.navigationModule.currentSection === 'logout' ? 'navlink--active' : ''" @click="navlinkClick">
                     <fa class="navlink-icon" icon="door-open" />
                     <transition name="fade-text" mode="out-in">
                         <span class="navlink-text" v-if="this.$mq !== 'sm'">Log Out</span>
@@ -46,17 +46,28 @@
     </aside>
 </template>
 <script lang="ts">
-import { Vue, Component } from "nuxt-property-decorator"
+import { Vue, Component, getModule } from "nuxt-property-decorator"
+
+import {NavigationNames} from "~/types/Navigation"
+
+import NavigationModule from "~/store/navigationModule"
 
 @Component
 export default class AppSidebar extends Vue {
     active: String = "home"
     sidebarOpen: Boolean = false
+    navigationModule!:NavigationModule
+
+    created() {
+        const navigationModuleInstance = getModule(NavigationModule, this.$store)
+        this.navigationModule = navigationModuleInstance
+    }
 
     navlinkClick(e: any) {
         let id: String = e.target.id
         this.active = id
-        this.$emit("section-change", id)
+        // this.$emit("section-change", id)
+        this.navigationModule.changeActiveSection(this.active as NavigationNames)
     }
 
     sidebarButtonClick() {

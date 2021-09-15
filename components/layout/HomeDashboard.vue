@@ -28,7 +28,7 @@
                     </stat-item>
                 </stats-card>
             </div>
-            <activity-card title="Recent Activity" class="w-full mt-4 lg:mt-0 lg:w-1/3 lg:ml-2 bg-green-100">
+            <activity-card title="Recent Activity" class="w-full mt-4 lg:mt-0 lg:w-1/3 lg:ml-2 bg-green-100 mb-2">
                 <recent-feature></recent-feature>
                 <recent-feature></recent-feature>
                 <recent-feature></recent-feature>
