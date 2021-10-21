@@ -1,4 +1,7 @@
 # hermes-instagram
+Web app to manage and store feature requests for instagram pages.
+Built with Nuxt.js and Tailwindcss.
+
 
 ## Build Setup
 
